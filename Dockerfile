@@ -6,7 +6,8 @@ WORKDIR /app
 
 COPY root /
 
-RUN apk add --update --no-cache openvpn tinyproxy \
+RUN apk add openvpn=2.4.12-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/v3.12/main/
+RUN apk add --update --no-cache tinyproxy \
 	&& mkdir config \
 	&& wget https://www.ipvanish.com/software/configs/configs.zip -P config/ \
 	&& unzip config/configs.zip -d config \
